@@ -5,19 +5,25 @@
 	<link href="/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 	<link href="/bootstrap-dark.css" rel="stylesheet" />
 	<link href="/style.css" rel="stylesheet" />
-	<script src="/lodash/index.js"></script>
-	<script src="/angular/angular.js"></script>
-	<script src="/js/module.js"></script>
-	<script src="/js/controllers/album.js"></script>
-	<script src="/js/controllers/albums.js"></script>
-	<script src="/js/controllers/player.js"></script>
-	<script src="/js/controllers/menu.js"></script>
-	<script src="/js/controllers/artist.js"></script>
-	<script src="/js/controllers/artists.js"></script>
-	<script src="/js/factories/player.js"></script>
-	<script src="/js/factories/album.js"></script>
-	<script src="/js/factories/song.js"></script>
-	<script src="/js/factories/artist.js"></script>
+	<script src="/lodash/index.js"defer></script>
+	<script src="/angular/angular.js"defer></script>
+	<script src="/angular-ui-router/build/angular-ui-router.min.js" defer></script>
+	<script src="/js/module.js"defer></script>
+	
+	<script src="/js/controllers/album.js"defer></script>
+	<script src="/js/controllers/albums.js"defer></script>
+	<script src="/js/controllers/player.js"defer></script>
+	<script src="/js/controllers/menu.js"defer></script>
+	<script src="/js/controllers/artist.js"defer></script>
+	<script src="/js/controllers/artists.js" defer></script>
+	<script src="/js/factories/player.js"defer></script>
+	<script src="/js/factories/album.js" defer></script>
+	<script src="/js/factories/song.js" defer></script>
+	<script src="/js/factories/artist.js" defer></script>
+	<script src="/js/states/albumstate.js" defer></script>
+	<script src="/js/states/artiststate.js" defer></script>
+
+	
 </head>
 <body ng-app="juke">
 	<div id="main" class="container-fluid">
@@ -26,20 +32,21 @@
 			<sidebar ng-controller="MenuCtrl">
 				<section>
 					<h4 class="playlist-item">
-						<a ng-click="viewAlbums()" href="#">ALBUMS</a>
+						<a ui-sref="albumList">ALBUMS</a>
 					</h4>
 				</section>
 				<section>
 					<h4 class="playlist-item">
-						<a ng-click="viewArtists()" href="#">ARTISTS</a>
+						<a ui-sref="artistList">ARTISTS</a>
 					</h4>
 				</section>
 			</sidebar>
 		</div>
 
 		<div class="col-xs-10">
+		<ui-view></ui-view>
 
-			<div ng-controller="ArtistsCtrl" ng-show="showMe">
+	<!-- 		<div ng-controller="ArtistsCtrl" ng-show="showMe">
 				<h3>Artists</h3>
 				<div class="list-group">
 					<div class="list-group-item" ng-repeat="artist in artists">
@@ -133,7 +140,7 @@
 						</tr>
 					</tbody>
 				</table>
-			</div>
+			</div> -->
 
 		</div>
 
